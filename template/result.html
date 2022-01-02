@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    * {
+      box-sizing: border-box;
+    }
+        
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    
+    .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    
+    .col-75 {
+      float: left;
+      width: 75%;
+      margin-top: 6px;
+    }
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+      }
+    }
+    </style>
+    </head>
+    <body>
+    
+    
+    <div class="container">
+      <form action="{% url 'home' %}">
+          {%csrf_token%}
+          <div class="row">
+          <div class="col-75">
+            It is :{{answer}}
+          </div>
+        </div>
+        
+        
+        <div class="row">
+          <input type="submit" value="Back">
+        </div>
+      
+    </form>
+    </div>
+    
+    </body>
+    </html>
+    
